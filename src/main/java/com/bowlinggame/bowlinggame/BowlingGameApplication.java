@@ -9,9 +9,9 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
-@ComponentScan({ "controller", "service", "parser" })
-@EnableJpaRepositories(basePackages = "repository")
-@EntityScan(basePackages = "model")
+@ComponentScan({ "com.bowlinggame.bowlinggame.controller", "com.bowlinggame.bowlinggame.service", "com.bowlinggame.bowlinggame.parser" })
+@EnableJpaRepositories(basePackages = "com.bowlinggame.bowlinggame.repository")
+@EntityScan(basePackages = "com.bowlinggame.bowlinggame.model")
 public class BowlingGameApplication {
 
 	public static void main(String[] args) {
