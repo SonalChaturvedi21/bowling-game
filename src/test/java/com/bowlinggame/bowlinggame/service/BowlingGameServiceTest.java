@@ -4,6 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
+import com.bowlinggame.bowlinggame.model.Player;
 import com.bowlinggame.bowlinggame.parser.RollParser;
 import com.bowlinggame.bowlinggame.parser.SetParser;
 import com.bowlinggame.bowlinggame.parser.StringRollParser;
@@ -13,12 +14,14 @@ public class BowlingGameServiceTest {
 	StringRollParser rollParser;
     SetParser setParser;
     BowlingGameService gameService;
+    Player p;
 
     @Before
     public void setUp(){
         rollParser = new StringRollParser();
         setParser = new SetParser();
         gameService = new BowlingGameService();
+        p=new Player(1, "Sonal", 3, "XXXXXXXXXXXX",0,12,12,200);
     }
     
     /**
@@ -27,7 +30,7 @@ public class BowlingGameServiceTest {
     @Test
     public void allStrikes(){
         String input = "XXXXXXXXXXXX";
-        assertEquals(gameService.scoreOfGame(input),300);
+        assertEquals(gameService.scoreOfGame(p.getId(),input),300);
     }
 
     /**
@@ -36,7 +39,7 @@ public class BowlingGameServiceTest {
     @Test
     public void allSparesAndLastStrike(){
         String input = "1$1$1$1$1$1$1$1$1$1$2";
-        assertEquals(gameService.scoreOfGame(input),150);
+        assertEquals(gameService.scoreOfGame(p.getId(),input),150);
     }
 
     /**
@@ -45,7 +48,7 @@ public class BowlingGameServiceTest {
     @Test
     public void allOnes(){
         String input = "11111111111111111111";
-        assertEquals(gameService.scoreOfGame(input),20);
+        assertEquals(gameService.scoreOfGame(p.getId(),input),20);
     }
 
     /**
@@ -54,7 +57,7 @@ public class BowlingGameServiceTest {
     @Test
     public void NinesAndMisses(){
         String input = "9-9-9-9-9-9-9-9-9-9-";
-        assertEquals(gameService.scoreOfGame(input),90);
+        assertEquals(gameService.scoreOfGame(p.getId(),input),90);
     }
 
     /**
@@ -63,6 +66,6 @@ public class BowlingGameServiceTest {
     @Test
     public void FiveAndSpareWithFinalFive(){
         String input = "5$5$5$5$5$5$5$5$5$5$5";
-        assertEquals(gameService.scoreOfGame(input),150);
+        assertEquals(gameService.scoreOfGame(p.getId(),input),150);
     }
 }

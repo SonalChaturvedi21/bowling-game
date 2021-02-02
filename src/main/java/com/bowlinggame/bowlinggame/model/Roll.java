@@ -18,4 +18,10 @@ public class Roll {
     public int getNumberOfKnockedPins() {
         return numberOfKnockedPins;
     }
+
+	@Override
+	public String toString() {
+		return "Roll [numberOfKnockedPins=" + numberOfKnockedPins + "]";
+	}
+    
 }

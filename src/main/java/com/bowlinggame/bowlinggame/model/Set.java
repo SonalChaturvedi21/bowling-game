@@ -36,4 +36,26 @@ public class Set {
         return false;
     }
 
+	@Override
+	public String toString() {
+		return "Set [firstRoll=" + firstRoll + ", secondRoll=" + secondRoll + "]";
+	}
+
+	public Roll getFirstRoll() {
+		return firstRoll;
+	}
+
+	public void setFirstRoll(Roll firstRoll) {
+		this.firstRoll = firstRoll;
+	}
+
+	public Roll getSecondRoll() {
+		return secondRoll;
+	}
+
+	public void setSecondRoll(Roll secondRoll) {
+		this.secondRoll = secondRoll;
+	}
+
+    
 }

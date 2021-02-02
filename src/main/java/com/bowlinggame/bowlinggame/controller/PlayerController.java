@@ -42,5 +42,8 @@ public class PlayerController {
 	        playerService.saveOrUpdate(player);
 	        return player.getId();
 	    }
+	    
+	    
+	    
     
 }
