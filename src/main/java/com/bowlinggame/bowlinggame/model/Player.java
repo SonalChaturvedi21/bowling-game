@@ -26,9 +26,17 @@ public class Player {
 	private int spareCount;
 	private int strikeCount;
 	private int missCount;
+	private int gameId;
+	
+	public int getGameId() {
+		return gameId;
+	}
+	public void setGameId(int gameId) {
+		this.gameId = gameId;
+	}
 	
 	public Player(int id, String playerName, int playerLane, String rollString, int spareCount, int strikeCount,
-			int missCount, int score) {
+			int missCount, int gameId, int score) {
 		super();
 		this.id = id;
 		this.playerName = playerName;
@@ -37,7 +45,12 @@ public class Player {
 		this.spareCount = spareCount;
 		this.strikeCount = strikeCount;
 		this.missCount = missCount;
+		this.gameId = gameId;
 		this.score = score;
+	}
+	public Player() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 	public int getSpareCount() {
 		return spareCount;
@@ -92,7 +105,8 @@ public class Player {
 	@Override
 	public String toString() {
 		return "Player [id=" + id + ", playerName=" + playerName + ", playerLane=" + playerLane + ", rollString="
-				+ rollString + ", score=" + score + "]";
+				+ rollString + ", spareCount=" + spareCount + ", strikeCount=" + strikeCount + ", missCount="
+				+ missCount + ", gameId=" + gameId + ", score=" + score + "]";
 	}
 	
 	

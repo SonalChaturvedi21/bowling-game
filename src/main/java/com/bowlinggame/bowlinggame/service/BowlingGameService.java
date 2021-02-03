@@ -46,7 +46,9 @@ public class BowlingGameService {
 		game.setGameId(rd.nextInt());
 		gameRepository.save(game);
 		List<Player> players=game.getPlayers();
+		for(Player p:players)p.setGameId(game.getGameId());
 		playerRepository.saveAll(players);
+		System.out.println("player details----" + players);
 		return game.getGameId();
 	}
 	
@@ -58,7 +60,7 @@ public class BowlingGameService {
 		return false;	
 	}
 	
-    public int scoreOfGame(int playerId,Object input){
+    public int scoreOfGame(int gameId,int playerId,Object input)throws Exception{
         List<Roll> parsedRoll = null;
         try {
             parsedRoll = rollParser.parse(input);
@@ -78,6 +80,7 @@ public class BowlingGameService {
         	if(s.getSecondRoll().getNumberOfKnockedPins()==0)missCount++;
         }
         Player p=playerRepository.findById(playerId);
+        if(gameId!=p.getGameId())throw new ParsingException("Invalid game Id");
         p.setScore(score);
         p.setRollString(input.toString());
         p.setSpareCount(spareCount);

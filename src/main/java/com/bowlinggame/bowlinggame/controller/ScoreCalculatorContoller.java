@@ -19,9 +19,9 @@ public class ScoreCalculatorContoller {
 	@Autowired
 	BowlingGameService bowlingGameService;
 	
-	@GetMapping("/player/{playerId}/input/{input}")
-    private int getScore(@PathVariable("playerId") int playerId,@PathVariable("input") String input) {
-        return bowlingGameService.scoreOfGame(playerId,input);
+	@GetMapping("game/{gameId}/player/{playerId}/input/{input}")
+    private int getScore(@PathVariable("gameId") int gameId,@PathVariable("playerId") int playerId,@PathVariable("input") String input)throws Exception {
+        return bowlingGameService.scoreOfGame(gameId,playerId,input);
     }
 
 }
